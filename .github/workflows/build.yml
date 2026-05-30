@@ -42,17 +42,9 @@ jobs:
           cosmos install -y
           cosmos check
 
+      # Builds are a compile/link check only — no ISO artifacts uploaded for now.
       - name: Build (x64)
         run: cosmos build -p Medli3 -a x64
 
       - name: Build (arm64)
         run: cosmos build -p Medli3 -a arm64
-
-      - name: Upload ISOs
-        uses: actions/upload-artifact@v4
-        with:
-          name: medli3-isos
-          path: |
-            Medli3/output-x64/Medli3.iso
-            Medli3/output-arm64/Medli3.iso
-          if-no-files-found: error
