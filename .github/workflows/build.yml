@@ -1,0 +1,58 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Install the Cosmos CLI
+        run: |
+          dotnet tool install -g Cosmos.Tools
+          echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
+
+      # The Cosmos toolchain (clang/lld/xorriso/qemu/gdb) is bundled under ~/.cosmos;
+      # cache it so `cosmos install` doesn't re-download it every run.
+      - name: Cache Cosmos toolchain
+        uses: actions/cache@v4
+        with:
+          path: ~/.cosmos
+          key: cosmos-${{ runner.os }}-v1
+
+      - name: Install toolchain + verify
+        run: |
+          cosmos install -y
+          cosmos check
+
+      - name: Build (x64)
+        run: cosmos build -p Medli3 -a x64
+
+      - name: Build (arm64)
+        run: cosmos build -p Medli3 -a arm64
+
+      - name: Upload ISOs
+        uses: actions/upload-artifact@v4
+        with:
+          name: medli3-isos
+          path: |
+            Medli3/output-x64/Medli3.iso
+            Medli3/output-arm64/Medli3.iso
+          if-no-files-found: error
