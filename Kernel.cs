@@ -2,7 +2,7 @@ using System;
 using Cosmos.Kernel.System;
 using Sys = Cosmos.Kernel.System;
 
-namespace Medli2;
+namespace Medli3;
 
 /// <summary>
 /// Main kernel class - inherits from Cosmos.Kernel.System.Kernel.
@@ -13,7 +13,7 @@ public class Kernel : Sys.Kernel
 
     protected override void BeforeRun()
     {
-        // White-on-blue colour scheme, like the gen2 Medli boot (Init/Boot.cs).
+        // White-on-blue colour scheme, like the Medli Legacy boot (Init/Boot.cs).
         Medli.Kernel.backgroundColour = ConsoleColor.Blue;
         Medli.Kernel.foregroundColour = ConsoleColor.White;
         Medli.Kernel.SetColourScheme();

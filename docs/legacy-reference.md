@@ -1,24 +1,20 @@
 ---
-title: gen2 reference
+title: Legacy reference
 nav_order: 9
 ---
 
-# gen2 reference (legacy)
-
-> **⚠️ Stale.** This page is auto-generated from the **XML doc comments of the
-> legacy gen2 Medli source** under `Medli/` (excluded from the build). It describes
-> the *old* IL2CPU kernel, not the current gen3 port — names, APIs and behaviour
-> often differ or no longer apply. It's kept as a map of what exists to port.
+# Legacy reference — Medli gen2 ("Medli Legacy")
 
 
-*63 documented types across the legacy tree.*
+*63 documented types.*
+
+> **⚠️ Stale.** Auto-generated from the XML doc comments of the **Medli gen2**
+> ("Medli Legacy") source under `Medli/` (excluded from the build). Describes the old
+> Cosmos gen2 / IL2CPU kernel, **not** Medli3 — names/APIs often differ. A map of what
+> exists to port.
 
 
-## Init — boot / init levels
-
-- **`Boot`** <small>(class, `Init/Boot.cs`)</small> — Initial boot class definition including init methods
-
-## Common — services, paths, kernel state
+## `Common`
 
 - **`AreaInfo`** <small>(class, `Common/AreaInfo.cs`)</small> — Listings of the information areas
 - **`KernelArea`** <small>(enum, `Common/AreaInfo.cs`)</small> — Enum of system subcomponents
@@ -28,11 +24,11 @@ nav_order: 9
 - **`AccessPriority`** <small>(enum, `Common/Services/Services.cs`)</small> — Class definition for access priorities, etc. core system daemons would have higher priority than others
 - **`Kernel`** <small>(class, `Common/VersionInfo.cs`)</small> — Partial class definition for main Medli kernel
 
-## Core — framework, IO, memory, multiboot
+## `Core`
 
 - **`Device`** <small>(class, `Core/Device.cs`)</small> — Class definition for Medli-Core Device
 
-## Hardware — drivers, disks, clock
+## `Hardware`
 
 - **`Clock`** <small>(class, `Hardware/Clock.cs`)</small> — Class definition for Medli-Hardware Clock
 - **`DiskListing`** <small>(class, `Hardware/DiskUtility/MDFS.Physical/MFSU.cs`)</small> — Defines a disk listing
@@ -44,27 +40,11 @@ nav_order: 9
 - **`DateFormat`** <small>(enum, `Hardware/RTC.cs`)</small> — DateFormat
 - **`TimeFormat`** <small>(enum, `Hardware/RTC.cs`)</small> — TimeFormat
 
-## System — framework, console, devices, crypto, accounts
+## `Init`
 
-- **`AccountDef`** <small>(class, `System/AccountDef.cs`)</small> — Class definition of type Account
-- **`UserType`** <small>(class, `System/AccountDef.cs`)</small> — Class definition of the user levels
-- **`MEnvironment`** <small>(class, `System/Environment.cs`)</small> — Will hold the environment methods which will be called by various components in Medli
-- **`Effect`** <small>(enum, `System/Framework/Console/Bootscreen.cs`)</small> — BootScreen debugger, I'm getting a stack overflow somewhere...
-- **`AConsole`** <small>(class, `System/Framework/Console/Console.cs`)</small> — Medli Framework Console class
-- **`VideoBuffer`** <small>(class, `System/Framework/Console/VideoRAM.cs`)</small> — Location of the VGA Video Memory buffer (0xB8000)
-- **`MD5`** <small>(class, `System/Framework/Crypto/MD5.cs`)</small> — Thanks to Aurora01!
-- **`Digest`** <small>(class, `System/Framework/Crypto/MD5.cs`)</small> — Copies a 512 bit block into X as 16 32 bit words
-- **`RockPotato`** <small>(class, `System/Framework/Crypto/RockPotato.cs`)</small> — A hash developed by Splitty
-- **`ROT13`** <small>(class, `System/Framework/Crypto/Rot.cs`)</small> — Rot13
-- **`ROT26`** <small>(class, `System/Framework/Crypto/Rot.cs`)</small> — Holy cow...
-- **`ROT47`** <small>(class, `System/Framework/Crypto/Rot.cs`)</small> — That's a joke, isn't it!?
-- **`StringExtensions`** <small>(class, `System/Framework/Extensions.cs`)</small> — Press-any-key prompt with custom text
-- **`BinaryReader`** <small>(class, `System/Framework/IO/BinaryReader.cs`)</small> — Class definition for BinaryReader
-- **`DateFormat`** <small>(enum, `System/Framework/RTC.cs`)</small> — DateFormat
-- **`TimeFormat`** <small>(enum, `System/Framework/RTC.cs`)</small> — TimeFormat
-- **`Installer`** <small>(class, `System/Installer.cs`)</small> — Class for the Medli installer
+- **`Boot`** <small>(class, `Init/Boot.cs`)</small> — Initial boot class definition including init methods
 
-## Kernel — shell, commands, apps
+## `Kernel`
 
 - **`Date`** <small>(class, `Kernel/Date.cs`)</small> — Class definition for Medli Date formatting
 - **`AppLauncher`** <small>(class, `Kernel/Utils/Applications/AppLauncher.cs`)</small> — Class definition for AppLauncher
@@ -94,3 +74,23 @@ nav_order: 9
 - **`Panic`** <small>(class, `Kernel/Utils/System/Panic.cs`)</small> — Class definition for the 'panic' command
 - **`Reboot`** <small>(class, `Kernel/Utils/System/Reboot.cs`)</small> — Class definition for the 'reboot' command
 - **`Shutdown`** <small>(class, `Kernel/Utils/System/Shutdown.cs`)</small> — Class definition for the 'shutdown' command
+
+## `System`
+
+- **`AccountDef`** <small>(class, `System/AccountDef.cs`)</small> — Class definition of type Account
+- **`UserType`** <small>(class, `System/AccountDef.cs`)</small> — Class definition of the user levels
+- **`MEnvironment`** <small>(class, `System/Environment.cs`)</small> — Will hold the environment methods which will be called by various components in Medli
+- **`Effect`** <small>(enum, `System/Framework/Console/Bootscreen.cs`)</small> — BootScreen debugger, I'm getting a stack overflow somewhere...
+- **`AConsole`** <small>(class, `System/Framework/Console/Console.cs`)</small> — Medli Framework Console class
+- **`VideoBuffer`** <small>(class, `System/Framework/Console/VideoRAM.cs`)</small> — Location of the VGA Video Memory buffer (0xB8000)
+- **`MD5`** <small>(class, `System/Framework/Crypto/MD5.cs`)</small> — Thanks to Aurora01!
+- **`Digest`** <small>(class, `System/Framework/Crypto/MD5.cs`)</small> — Copies a 512 bit block into X as 16 32 bit words
+- **`RockPotato`** <small>(class, `System/Framework/Crypto/RockPotato.cs`)</small> — A hash developed by Splitty
+- **`ROT13`** <small>(class, `System/Framework/Crypto/Rot.cs`)</small> — Rot13
+- **`ROT26`** <small>(class, `System/Framework/Crypto/Rot.cs`)</small> — Holy cow...
+- **`ROT47`** <small>(class, `System/Framework/Crypto/Rot.cs`)</small> — That's a joke, isn't it!?
+- **`StringExtensions`** <small>(class, `System/Framework/Extensions.cs`)</small> — Press-any-key prompt with custom text
+- **`BinaryReader`** <small>(class, `System/Framework/IO/BinaryReader.cs`)</small> — Class definition for BinaryReader
+- **`DateFormat`** <small>(enum, `System/Framework/RTC.cs`)</small> — DateFormat
+- **`TimeFormat`** <small>(enum, `System/Framework/RTC.cs`)</small> — TimeFormat
+- **`Installer`** <small>(class, `System/Installer.cs`)</small> — Class for the Medli installer

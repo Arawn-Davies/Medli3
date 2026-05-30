@@ -1,11 +1,18 @@
-# Medli2
+# Medli3
 
-**Medli ported to Cosmos gen3** — a bare-metal C# operating system built on
-[Cosmos gen3](https://github.com/valentinbreiz/nativeaot-patcher), which compiles a
-.NET kernel to a bootable image with **NativeAOT** (replacing the old IL2CPU
-transpiler used by gen2 Medli).
+**Medli3 is the third generation of Medli** (Medli gen3) — a bare-metal C# operating
+system built on **Cosmos gen3**, the [NativeAOT-based Cosmos framework](https://github.com/valentinbreiz/nativeaot-patcher)
+that compiles a .NET kernel to a bootable image with the official **NativeAOT** compiler.
 
-Medli2 boots on **x86-64** and **ARM64**, into a colour console shell.
+> **Two separate "gen" numbers — keep them straight:**
+> - **Medli** generation = the OS: **gen1** (Medli-Classic) → **gen2** (Medli, "Medli
+>   Legacy") → **gen3** (this repo, Medli3).
+> - **Cosmos** generation = the framework: **gen2** (IL2CPU transpiler) → **gen3**
+>   (NativeAOT).
+>
+> **Medli3 = Medli gen3, on Cosmos gen3.** (Medli gen2 ran on Cosmos gen2.)
+
+Medli3 boots on **x86-64** and **ARM64**, into a colour console shell.
 
 ```
    __    _
@@ -33,19 +40,25 @@ See **[docs/](docs/)** for the full guide.
 
 ## What's here
 
-- `Kernel.cs` — kernel entry point (`Medli2.Kernel : Cosmos.Kernel.System.Kernel`).
+- `Kernel.cs` — kernel entry point (`Medli3.Kernel : Cosmos.Kernel.System.Kernel`).
 - `Boot/` — boot visuals: colour scheme, logo/welcome banner, colour spectrum.
 - `Shell/` — the interactive shell (`CommandConsole`) and its commands.
-- `Medli/` — the **legacy gen2 Medli source**, excluded from the build, kept as a
-  reference for incremental porting to the gen3 API.
+- `Medli/` — **Medli gen2 ("Medli Legacy")** source, excluded from the build, kept as the
+  primary porting reference.
+- `Medli-Classic/` — **Medli gen1** source, also vendored for reference (excluded).
+- `src/C/` — placeholder for native C compiled into the kernel (shared Makar/Medli code).
 - `run.sh` — QEMU launcher for x64/arm64.
 
 ## Lineage
 
-Medli2 is the **gen3** continuation of [Arawn-Davies/Medli](https://github.com/Arawn-Davies/Medli)
-(gen2, IL2CPU/Cosmos.System2), and a sibling of [Makar](https://github.com/Arawn-Davies/Makar),
-a parallel ground-up implementation of the same OS concept in C. See
-[docs/about.md](docs/about.md).
+| Gen | Project | Framework | Repo |
+|-----|---------|-----------|------|
+| gen1 | Medli-Classic | Cosmos (early) | [Medli-Classic](https://github.com/Arawn-Davies/Medli-Classic) |
+| gen2 | Medli ("Medli Legacy") | Cosmos gen2 (IL2CPU) | [Medli](https://github.com/Arawn-Davies/Medli) |
+| **gen3** | **Medli3** (this repo) | **Cosmos gen3** (NativeAOT) | [Medli3](https://github.com/Arawn-Davies/Medli3) |
+
+Medli is also paralleled by [Makar](https://github.com/Arawn-Davies/Makar) — a
+ground-up implementation of the same OS concept in C. See [docs/about.md](docs/about.md).
 
 ## Documentation
 
@@ -55,9 +68,11 @@ a parallel ground-up implementation of the same OS concept in C. See
 | [Building & running](docs/building-and-running.md) | `cosmos` CLI, `run.sh`, QEMU, devkit-from-source |
 | [Architecture](docs/architecture.md) | Project layout, boot flow, kernel lifecycle |
 | [Shell](docs/shell.md) | The shell and command reference |
-| [Porting from gen2](docs/porting.md) | How the gen2 → gen3 port works |
+| [Porting](docs/porting.md) | How the Medli gen2 → Medli3 port works |
 | [Known issues](docs/known-issues.md) | Upstream bugs and platform quirks found so far |
-| [About](docs/about.md) | Medli, Makar, and the gen2 lineage |
+| [Legacy reference](docs/legacy-reference.md) | Catalogue of Medli gen2 (Medli Legacy) subsystems (stale) |
+| [Classic reference](docs/classic-reference.md) | Catalogue of Medli gen1 (Medli-Classic) subsystems (stale) |
+| [About](docs/about.md) | Medli, Makar, and the gen lineage |
 
 ## Licence
 

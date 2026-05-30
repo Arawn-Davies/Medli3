@@ -1,0 +1,55 @@
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/page.dwt" codeOutsideHTMLIsLocked="false" -->
+	<head>
+		<script src="lib/w3.js"></script>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<!-- InstanceBeginEditable name="doctitle" -->
+		<title>Medli OS Homepage</title>
+		<!-- InstanceEndEditable -->
+		<link rel="stylesheet" href="css/font.css" type="text/css">
+		<link rel="stylesheet" href="css/style.css" type="text/css">
+		<script src="/assets/js/scale.fix.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!-- Place this tag in your head or just before your close body tag. -->
+		<script async defer src="https://buttons.github.io/buttons.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<div w3-include-html="header.html"></div> 
+				<script>
+					w3.includeHTML();
+				</script>     
+			</header>
+			<section>
+				<h1 id="medli2">Medli</h1>
+				<p>A free open source operating system developed in C#</p>
+				<!-- InstanceBeginEditable name="Content" -->
+					<p>Medli OS is an operating system developed in C# using the <a href="http://github.com/CosmosOS">Cosmos toolkit</a>.</p>
+					<p>I am currently working on developing a new kernel for Medli, with a new shell and increased support for command line arguments, more IO functionality and error handling.</p>
+					<p>For the time being, this new kernel is going to be closed source but I will be working on both the existing Medli kernel/shell, and this new one, so development between the two will be split.</p>
+				<!-- InstanceEndEditable -->
+				<!-- Place this tag where you want the button to render. -->
+				<a class="github-button" href="https://github.com/Arawn-Davies/Medli/archive/master.zip" data-icon="octicon-cloud-download" data-size="large" aria-label="Download Arawn-Davies/Medli on GitHub">Download as .zip</a>
+				<a class="github-button" href="https://github.com/Arawn-Davies/Medli/archive/master.tar.gz" data-icon="octicon-cloud-download" data-size="large" aria-label="Download Arawn-Davies/Medli on GitHub">Download as .tar.gz</a>
+				<p>Be sure to follow me for updates on the development of Medli and for other updates on new exiciting software projects!</p>
+								<a class="github-button" href="https://github.com/Arawn-Davies" data-size="large" aria-label="Follow @Arawn-Davies on GitHub">Follow @Arawn-Davies</a>
+				<a class="github-button" href="https://github.com/Arawn-Davies/Medli/subscription" data-icon="octicon-eye" data-size="large" aria-label="Watch Arawn-Davies/Medli on GitHub">Watch</a>
+				<p>Got an issue with Medli? Something not working right? Feel free to leave some feedback on the GitHub repo!</p>
+				<a class="github-button" href="https://github.com/Arawn-Davies/Medli/issues" data-icon="octicon-issue-opened" data-size="large" aria-label="Issue Arawn-Davies/Medli on GitHub">Issue</a>
+			</section>
+			<footer>
+				<div w3-include-html="footer.html"></div> 
+				<script>
+					w3.includeHTML();
+				</script>
+			</footer>
+	    </div>
+	<!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+	</body>
+</html>

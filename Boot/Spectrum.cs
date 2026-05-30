@@ -3,7 +3,7 @@ using System;
 namespace Medli;
 
 /// <summary>
-/// Shows the full 16-colour console palette. New to the gen3 port (the gen2 boot
+/// Shows the full 16-colour console palette. New to Medli3 (the Medli Legacy boot
 /// had no such demo); useful as a quick check that fg/bg colours render.
 /// </summary>
 public static class Spectrum

@@ -20,7 +20,7 @@ MEM="${MEM:-512}"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 COSMOS="$HOME/.dotnet/tools/cosmos"
 QEMU_DIR="$HOME/.cosmos/tools/qemu"
-ISO="$ROOT/output-$ARCH/Medli2.iso"
+ISO="$ROOT/output-$ARCH/Medli3.iso"
 
 # Build for the requested arch.
 "$COSMOS" build -a "$ARCH"

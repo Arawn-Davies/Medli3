@@ -16,9 +16,9 @@ cosmos build -a arm64        # ARM64
 cosmos build -p <path>       # point at a project dir (handy when cwd differs)
 ```
 
-Output: `output-<arch>/Medli2.iso`.
+Output: `output-<arch>/Medli3.iso`.
 
-The kernel targets `net10.0` and references the gen3 packages (see `Medli2.csproj`):
+The kernel targets `net10.0` and references the Cosmos gen3 packages (see `Medli3.csproj`):
 
 ```xml
 <Project Sdk="Cosmos.Sdk/3.0.58">
@@ -77,7 +77,7 @@ Two ARM-specific gotchas, both handled by `run.sh`:
 ## Building against a from-source Cosmos devkit
 
 To test against your own build of the Cosmos gen3 framework (e.g. to try an upstream
-fix), build the framework and point Medli2 at it:
+fix), build the framework and point Medli3 at it:
 
 ```bash
 git clone --recurse-submodules https://github.com/valentinbreiz/nativeaot-patcher
@@ -86,7 +86,7 @@ cd nativeaot-patcher
 ```
 
 Local dev builds are versioned `3.0.58.<yyyyMMdd>`, **not** plain `3.0.58`. Because
-`Medli2.csproj` pins exact `3.0.58`, it keeps using the released packages until you
+`Medli3.csproj` pins exact `3.0.58`, it keeps using the released packages until you
 bump it. To consume the source build, set the SDK + package versions to the dated
 version (a `global.json` with `msbuild-sdks.Cosmos.Sdk` plus matching
 `PackageReference`s) — they must all move together or NuGet errors with `NU1605`.

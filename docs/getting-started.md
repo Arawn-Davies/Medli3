@@ -10,7 +10,7 @@ nav_order: 2
 - **.NET SDK 10.0 or later** (`dotnet --version`). The Cosmos gen3 tool and SDK
   target `net10.0`.
 - A host that QEMU runs on. On macOS/Linux the Cosmos installer bundles QEMU,
-  clang/lld, xorriso and GDB; on Windows use the installer from the gen3 releases.
+  clang/lld, xorriso and GDB; on Windows use the installer from the Cosmos gen3 releases.
 
 ## Install the toolchain
 
@@ -36,7 +36,7 @@ cosmos build -a x64       # force x86-64
 cosmos build -a arm64     # force ARM64
 ```
 
-The bootable ISO lands in `output-<arch>/Medli2.iso`.
+The bootable ISO lands in `output-<arch>/Medli3.iso`.
 
 ## Run
 

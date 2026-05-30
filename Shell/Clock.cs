@@ -5,7 +5,7 @@ namespace Medli;
 /// <summary>
 /// Date/time formatting off the RTC. Ports the logic of Medli/Kernel/{Date,Time}.cs,
 /// but reads <see cref="DateTime.Now"/> (plugged to the RTC in Cosmos gen3 via
-/// DateTimePlug) instead of the gen2 SysClock/Clock wrappers. Name arrays are
+/// DateTimePlug) instead of the Medli Legacy SysClock/Clock wrappers. Name arrays are
 /// hardcoded to avoid relying on enum reflection under NativeAOT.
 /// </summary>
 public static class Clock

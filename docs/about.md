@@ -5,9 +5,9 @@ nav_order: 8
 
 # About Medli & Makar
 
-Medli is a hobby operating system by **Arawn Davies**. It has a
-sibling, **Makar** — *parallel, independent implementations of the same OS concept*,
-not layers of one another.
+Medli is a hobby operating system by **Arawn Davies**. It has a sibling, **Makar** —
+*parallel, independent implementations of the same OS concept*, not layers of one
+another.
 
 | | Makar | Medli |
 |---|---|---|
@@ -20,19 +20,31 @@ Medli — "vi C-Sharp" — ported to Makar as **VIX**), a common filesystem layo
 and eventually shared binary formats (the proposed **MXF** for native interop; **MEF**
 stays Medli-only; **COM** as the DOS-flat lowest common denominator).
 
-- Makar: <https://github.com/Arawn-Davies/Makar> (BSD-3-Clause Clear)
-- Medli (gen2): <https://github.com/Arawn-Davies/Medli>
-- Medli2 (gen3, this repo): <https://github.com/Arawn-Davies/Medli2>
+## Medli generations
+
+Medli has had three generations. "Medli gen" (the OS) and "Cosmos gen" (the framework
+it's built on) are *different* numbers — don't conflate them.
+
+| Medli gen | Project | Cosmos framework | Repo |
+|-----------|---------|------------------|------|
+| gen1 | Medli-Classic | Cosmos (early) | [Medli-Classic](https://github.com/Arawn-Davies/Medli-Classic) |
+| gen2 | Medli ("Medli Legacy") | Cosmos gen2 (IL2CPU) | [Medli](https://github.com/Arawn-Davies/Medli) |
+| **gen3** | **Medli3** (this repo) | **Cosmos gen3** (NativeAOT) | [Medli3](https://github.com/Arawn-Davies/Medli3) |
+
+- **Medli gen1 / Medli-Classic** — the earliest Medli.
+- **Medli gen2 / "Medli Legacy"** — built with **Cosmos gen2** via **IL2CPU**, the
+  IL→x86 transpiler.
+- **Medli gen3 / Medli3** — this repo, built on
+  [Cosmos gen3 / nativeaot-patcher](https://github.com/valentinbreiz/nativeaot-patcher),
+  which uses the official **.NET NativeAOT** compiler — gaining ARM64 alongside x86-64.
+
+Both predecessors are vendored here as porting references (`Medli/` = gen2,
+`Medli-Classic/` = gen1), excluded from the build. See [Porting](porting.md).
+
+In short: **Medli3 = Medli gen3, on Cosmos gen3.**
+
 - Overview site: <http://arawn-davies.co.uk/Makar/makar-medli.html>
-
-## gen2 → gen3
-
-The original Medli (now "gen2") is built with **Cosmos** via **IL2CPU**, the IL→x86
-transpiler. **Medli2** is the "gen3" continuation built on
-[Cosmos gen3 / nativeaot-patcher](https://github.com/valentinbreiz/nativeaot-patcher),
-which uses the official **.NET NativeAOT** compiler instead — gaining ARM64 alongside
-x86-64, and a more standard C# build. The gen2 source is preserved in this repo under
-`Medli/` as the porting reference (see [Porting from gen2](porting.md)).
+- Makar: <https://github.com/Arawn-Davies/Makar> (BSD-3-Clause Clear)
 
 ## Credits
 

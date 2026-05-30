@@ -6,7 +6,7 @@ namespace Medli;
 
 /// <summary>
 /// The interactive shell. Slimmed port of Medli/Kernel/CommandConsole.cs: keeps the
-/// command registry + parser, but drops the gen2 login/screen/filesystem state and
+/// command registry + parser, but drops the Medli Legacy login/screen/filesystem state and
 /// only registers commands that have been ported so far (no IO yet).
 /// </summary>
 public class CommandConsole

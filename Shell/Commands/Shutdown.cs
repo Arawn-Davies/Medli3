@@ -5,7 +5,7 @@ namespace Medli.Apps;
 /// <summary>
 /// The 'shutdown' command. Ported from Medli/Kernel/Utils/System/Shutdown.cs.
 /// Asks the shell to stop; the kernel performs the actual power-off once the
-/// shell loop returns. (The gen2 version also called EnvironmentVariables.SaveVars(),
+/// shell loop returns. (The Medli Legacy version also called EnvironmentVariables.SaveVars(),
 /// deferred until the filesystem is ported.)
 /// </summary>
 public class Shutdown : Command

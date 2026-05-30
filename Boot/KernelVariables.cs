@@ -41,7 +41,7 @@ Released under the BSD-3 Clause Clear license
     public static string username = "user";
     public static string pcname = "medli";
 
-    // --- gen2 filesystem paths: not ported until the FS subsystem lands ---
+    // --- Medli Legacy filesystem paths: not ported until the FS subsystem lands ---
     // public static string pcinfo = Common.Paths.System + MEnvironment.dir_ext + "pcinfo.sys";
     // public static string usrinfo = Common.Paths.System + MEnvironment.dir_ext + "usrinfo.sys";
 }

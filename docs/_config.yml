@@ -1,11 +1,11 @@
-title: Medli2
+title: Medli3
 description: Medli ported to Cosmos gen3 (NativeAOT) — a bare-metal C# OS
 remote_theme: just-the-docs/just-the-docs
 
 # Served from the /docs folder of the repo (Settings → Pages → /docs).
 aux_links:
   GitHub:
-    - https://github.com/Arawn-Davies/Medli2
+    - https://github.com/Arawn-Davies/Medli3
 
 # just-the-docs options
 search_enabled: true

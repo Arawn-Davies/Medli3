@@ -5,8 +5,8 @@ nav_order: 7
 
 # Known issues
 
-Issues found during the port. The first two are **upstream** (Cosmos gen3), not Medli2
-bugs; documented here because they shape what Medli2 can do.
+Issues found during the port. The first two are **upstream** (Cosmos gen3), not Medli3
+bugs; documented here because they shape what Medli3 can do.
 
 ## 1. Per-cell background colour is lost on scroll (upstream)
 
@@ -23,7 +23,7 @@ survive). Confirmed identical in released `v3.0.58` and `main`.
 Suggested fix (one spot): make the redraw loop paint the cell background too, or just
 delegate to the existing `DrawCharAt(col, row)` which already draws both.
 
-Medli2 works around it by drawing the colour spectrum as **foreground** glyphs.
+Medli3 works around it by drawing the colour spectrum as **foreground** glyphs.
 
 ## 2. PSF unicode glyphs mangled on from-source devkit builds
 
@@ -37,7 +37,7 @@ between the two, so the cause is in the from-source build pipeline (the `ilc` /
 `Cosmos.Patcher` / resource-embedding path that the dev script installs as global
 tools) mangling the embedded PSF's unicode table — not the kernel's font handling.
 
-Medli2 sidesteps it by using ASCII (`#`) rather than block glyphs in the spectrum.
+Medli3 sidesteps it by using ASCII (`#`) rather than block glyphs in the spectrum.
 
 ## 3. ARM64 framebuffer is firmware-locked at 800×600
 

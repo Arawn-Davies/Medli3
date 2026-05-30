@@ -5,8 +5,8 @@ nav_order: 5
 
 # Shell
 
-The shell is `Medli.CommandConsole` — a port of the gen2 `CommandConsole`, slimmed to
-drop the gen2 login/screen/filesystem state. It prints a `medli~>` prompt, reads a
+The shell is `Medli.CommandConsole` — a port of the Medli Legacy `CommandConsole`, slimmed to
+drop the Medli Legacy login/screen/filesystem state. It prints a `medli~>` prompt, reads a
 line, splits it into a command + argument on the first space, and dispatches to a
 registered `Command`.
 
@@ -39,13 +39,13 @@ public abstract class Command
 
 ### Notes
 
-- **`date`/`time`** read `System.DateTime.Now`, which is plugged to the RTC in gen3
-  (`DateTimePlug`) and is architecture-neutral — no gen2 `SysClock`/`Clock` wrappers.
+- **`date`/`time`** read `System.DateTime.Now`, which is plugged to the RTC in Cosmos gen3
+  (`DateTimePlug`) and is architecture-neutral — no original-Medli `SysClock`/`Clock` wrappers.
   Day/month names use hardcoded tables (enum reflection is unreliable under NativeAOT).
-- **`$` / `echo $var`** use an in-memory `EnvironmentVariables` store. The gen2
+- **`$` / `echo $var`** use an in-memory `EnvironmentVariables` store. The Medli Legacy
   file-backed `save`/`load` are deferred until the filesystem is ported.
-- **`panic`** is a stand-in: the gen2 version fired interrupt 0 via
-  `Cosmos.Core.INTs`, which has no gen3 equivalent, so it currently `throw`s.
+- **`panic`** is a stand-in: the Medli Legacy version fired interrupt 0 via
+  `Cosmos.Core.INTs`, which has no Cosmos gen3 equivalent, so it currently `throw`s.
 
 ## Adding a command
 
@@ -53,6 +53,6 @@ public abstract class Command
 2. Register it in `CommandConsole`'s constructor: `_commands.Add(new Foo());`
    (keep `HelpCommand` last so it can list everything).
 
-The gen2 shell had ~30 commands (`dir`, `cd`, `copy`, `move`, `rm`, `mkdir`, `fdisk`,
+The Medli Legacy shell had ~30 commands (`dir`, `cd`, `copy`, `move`, `rm`, `mkdir`, `fdisk`,
 `cowsay`, the VICS editor, …). Most touch the filesystem/disk/hardware and are ported
-incrementally — see [Porting from gen2](porting.md).
+incrementally — see [Porting](porting.md).

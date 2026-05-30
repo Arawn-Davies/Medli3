@@ -12,18 +12,21 @@
   </ItemGroup>
 
   <!--
-    Legacy Medli source (IL2CPU/Cosmos gen2) copied in for porting to Cosmos gen3.
-    Excluded from the build for now; remove entries from this glob as each file/folder
-    is ported to the new Cosmos.Kernel API.
+    Vendored predecessor source, kept as porting reference and EXCLUDED from the build:
+      Medli/          — Medli gen2 ("Medli Legacy", IL2CPU / Cosmos gen2)
+      Medli-Classic/  — Medli gen1 (the earliest Medli)
+    Remove entries from these globs as each file/folder is ported to Cosmos.Kernel.
   -->
   <ItemGroup>
     <Compile Remove="Medli/**/*.cs" />
     <None Remove="Medli/**/*" />
+    <Compile Remove="Medli-Classic/**/*.cs" />
+    <None Remove="Medli-Classic/**/*" />
   </ItemGroup>
 
   <!--
     Generate build info (year + build number) into obj/ before compiling, and add it
-    to the build. This is the gen3 equivalent of the gen2 VersionInfo.cs/BuildNumber
+    to the build. This is the Cosmos gen3-era equivalent of the Medli Legacy's VersionInfo.cs/BuildNumber
     target, so the copyright year is always current without manual edits.
   -->
   <Target Name="GenerateBuildInfo" BeforeTargets="BeforeCompile;CoreCompile">

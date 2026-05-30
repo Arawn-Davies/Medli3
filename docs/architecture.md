@@ -8,9 +8,9 @@ nav_order: 4
 ## Project layout
 
 ```
-Medli2/
-├── Kernel.cs            Entry point: Medli2.Kernel : Cosmos.Kernel.System.Kernel
-├── Medli2.csproj        Cosmos.Sdk project + GenerateBuildInfo target
+Medli3/
+├── Kernel.cs            Entry point: Medli3.Kernel : Cosmos.Kernel.System.Kernel
+├── Medli3.csproj        Cosmos.Sdk project + GenerateBuildInfo target
 ├── Bootloader/
 │   └── limine.conf      Limine boot entry
 ├── Boot/                Boot visuals (namespace Medli)
@@ -24,15 +24,19 @@ Medli2/
 │   ├── Command.cs            abstract command base
 │   ├── CommandConsole.cs     REPL + parser + command registry
 │   └── Commands/             cls, echo, set, date, time, version, reboot, shutdown, panic, help
-├── Medli/               Legacy gen2 source — EXCLUDED from the build (porting reference)
+├── Medli/               Medli gen2 ("Medli Legacy") source — EXCLUDED from the build
+├── Medli-Classic/       Medli gen1 source — EXCLUDED from the build
+├── src/C/               native C compiled into the kernel (shared Makar/Medli code)
 └── run.sh               QEMU launcher
 ```
 
-The legacy tree is excluded in `Medli2.csproj`:
+Both predecessor trees are excluded in `Medli3.csproj`:
 
 ```xml
 <Compile Remove="Medli/**/*.cs" />
 <None    Remove="Medli/**/*" />
+<Compile Remove="Medli-Classic/**/*.cs" />
+<None    Remove="Medli-Classic/**/*" />
 ```
 
 Ported files are reintroduced under `Boot/` and `Shell/` reusing the original
@@ -40,11 +44,11 @@ Ported files are reintroduced under `Boot/` and `Shell/` reusing the original
 
 ## Kernel lifecycle
 
-Cosmos gen3 calls into `Medli2.Kernel` (subclass of `Cosmos.Kernel.System.Kernel`):
+Cosmos gen3 calls into `Medli3.Kernel` (subclass of `Cosmos.Kernel.System.Kernel`):
 
-- **`BeforeRun()`** — once, at startup. Medli2 sets white-on-blue, clears, prints the
+- **`BeforeRun()`** — once, at startup. Medli3 sets white-on-blue, clears, prints the
   logo + welcome banner + colour spectrum.
-- **`Run()`** — the kernel's main loop body. Medli2 hands control to the shell
+- **`Run()`** — the kernel's main loop body. Medli3 hands control to the shell
   (`CommandConsole.Run()`), which owns its own read-eval-print loop and returns when
   `shutdown` runs; the kernel then calls `Power.Shutdown()`.
 

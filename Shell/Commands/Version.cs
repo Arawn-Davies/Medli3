@@ -26,7 +26,7 @@ public class Version : Command
         Console.WriteLine(Medli.MedliInfo.Copyright);
         Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         Console.ForegroundColor = ConsoleColor.White;
-        Console.WriteLine("Medli v" + Medli.MedliInfo.Version + " (Cosmos gen3 / NativeAOT)");
+        Console.WriteLine("Medli3 v" + Medli.MedliInfo.Version + " (Medli gen3, on Cosmos gen3 / NativeAOT)");
         Console.WriteLine("Build: " + Medli.MedliInfo.BuildNumber);
         Console.WriteLine("Built against Cosmos v" + Medli.MedliInfo.CosmosVersion);
         Console.WriteLine();

@@ -4,10 +4,20 @@ layout: home
 nav_order: 1
 ---
 
-# Medli2 documentation
+# Medli3 documentation
 
-Medli2 is **Medli ported to Cosmos gen3** — a NativeAOT-compiled bare-metal C#
-kernel. It boots on x86-64 and ARM64 into a colour console shell.
+**Medli3 is Medli gen3** — the third generation of Medli — built on **Cosmos gen3**, a
+NativeAOT-compiled bare-metal C# kernel. It boots on x86-64 and ARM64 into a colour
+console shell.
+
+> **Mind the two "gens".**
+> - **Medli** gen = the OS version: **gen1** (Medli-Classic) → **gen2** (Medli, aka
+>   "Medli Legacy") → **gen3** (Medli3, this repo).
+> - **Cosmos** gen = the framework: **gen2** (IL2CPU transpiler, `Cosmos.System2`/
+>   `Cosmos.HAL2`) → **gen3** (NativeAOT, `Cosmos.Kernel*`).
+>
+> So Medli gen2 ran on **Cosmos gen2**; **Medli3 runs on Cosmos gen3**. Because the two
+> Cosmos APIs differ structurally, porting is file-by-file, not a recompile.
 
 ## Contents
 
@@ -17,15 +27,12 @@ kernel. It boots on x86-64 and ARM64 into a colour console shell.
 - **[Architecture](architecture.md)** — project layout, the boot flow, and the
   Cosmos gen3 kernel lifecycle.
 - **[Shell](shell.md)** — the interactive shell and its command reference.
-- **[Porting from gen2](porting.md)** — how the gen2 (IL2CPU) → gen3 (NativeAOT)
-  port is structured and what is/isn't done.
-- **[Known issues](known-issues.md)** — upstream bugs and platform quirks found
-  during the port.
-- **[gen2 reference](gen2-reference.md)** — catalogue of the legacy gen2 subsystems,
-  taken from their own XML doc comments. **Stale** — describes the old kernel.
+- **[Porting](porting.md)** — how the Medli gen2 → Medli3 port is structured and
+  what is/isn't done.
+- **[Known issues](known-issues.md)** — upstream (Cosmos gen3) bugs and platform
+  quirks found during the port.
+- **[Legacy reference](legacy-reference.md)** — catalogue of the **Medli gen2** ("Medli
+  Legacy") subsystems, from their XML doc comments. **Stale.**
+- **[Classic reference](classic-reference.md)** — catalogue of the **Medli gen1**
+  (Medli-Classic) subsystems. **Stale.**
 - **[About](about.md)** — Medli, the sibling project Makar, and the lineage.
-
-> **A note on "gen2" vs "gen3".** *gen2* is the original Medli: C#/X# compiled by
-> **IL2CPU**, on `Cosmos.System2`/`Cosmos.HAL2`. *gen3* is this port: standard C#
-> compiled by **NativeAOT** via the Cosmos gen3 SDK (`Cosmos.Kernel*`). The two
-> APIs differ structurally, so porting is file-by-file, not a recompile.

@@ -3,7 +3,7 @@ using System;
 namespace Medli.Apps;
 
 /// <summary>
-/// Base class for all shell commands. Ported from the gen2 Medli kernel
+/// Base class for all shell commands. Ported from the Medli Legacy kernel
 /// (Medli/Kernel/Command.cs) — unchanged in shape, just file-scoped namespace.
 /// </summary>
 public abstract class Command
