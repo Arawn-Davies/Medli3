@@ -5,7 +5,7 @@ nav_order: 8
 
 # About Medli & Makar
 
-Medli is a hobby operating system by **Arawn Davies** (Siaranite Solutions). It has a
+Medli is a hobby operating system by **Arawn Davies**. It has a
 sibling, **Makar** — *parallel, independent implementations of the same OS concept*,
 not layers of one another.
 
@@ -36,6 +36,6 @@ x86-64, and a more standard C# build. The gen2 source is preserved in this repo 
 
 ## Credits
 
-- Medli & Makar: Arawn Davies, Siaranite Solutions.
+- Medli & Makar: Arawn Davies.
 - Cosmos gen3 / nativeaot-patcher: Valentin Breiz and contributors.
 - The original Cosmos project: the CosmosOS team.

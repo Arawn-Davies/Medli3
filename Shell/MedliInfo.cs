@@ -10,5 +10,5 @@ public static partial class MedliInfo
 {
     public const string Version = "0.1-gen3";
 
-    public static string Copyright => "Copyright (C) " + BuildYear + " Arawn Davies, Siaranite Solutions";
+    public static string Copyright => "Copyright (C) " + BuildYear + " Arawn Davies";
 }

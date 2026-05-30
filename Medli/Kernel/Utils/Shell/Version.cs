@@ -51,7 +51,7 @@ namespace Medli.Apps
         private void DisplayVersion()
 		{
 			Console.ForegroundColor = ConsoleColor.Green;
-			Console.WriteLine("Medli Copyright 2022 Siaranite Solutions");
+			Console.WriteLine("Medli Copyright 2022 Arawn Davies");
 			Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			Console.ForegroundColor = ConsoleColor.White;
 			Console.Write("Medli v");

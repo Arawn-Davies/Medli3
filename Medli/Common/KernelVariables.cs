@@ -46,8 +46,8 @@ The C# free and open source Operating System
         /// </summary>
         public static string Welcome = @"
 Welcome to Medli version: " + KernelVersion + ", build: " +  BuildNumber + @"
-Developed by Siaranite Solutions & Arawn Davies
-Copyright (C) 2023 Arawn Davies, Siaranite Solutions, All Rights Reserved
+Developed by Arawn Davies
+Copyright (C) 2023 Arawn Davies, All Rights Reserved
 Released under the BSD-3 Clause Clear license
 ";
 
@@ -56,7 +56,7 @@ Released under the BSD-3 Clause Clear license
         /// </summary>
         public static string License = @"MIT License
 
-Copyright (c) 2023 Arawn Davies, Siaranite Solutions
+Copyright (c) 2023 Arawn Davies
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the ""Software""), to deal

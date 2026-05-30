@@ -33,7 +33,7 @@ The C# free and open source Operating System
     public static string Welcome = @"
 Welcome to Medli version: " + MedliInfo.Version + ", build: " + MedliInfo.BuildNumber + @"
 Built against Cosmos v" + MedliInfo.CosmosVersion + @"
-Developed by Siaranite Solutions & Arawn Davies
+Developed by Arawn Davies
 " + MedliInfo.Copyright + @", All Rights Reserved
 Released under the BSD-3 Clause Clear license
 ";
