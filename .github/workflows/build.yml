@@ -1,9 +1,17 @@
 name: Build
 
 on:
+  # Only build when the kernel project (or this workflow) changes — not for docs,
+  # README, run.sh, or the reference trees (Medli-Legacy/, Medli-Classic/).
   push:
     branches: [main]
+    paths:
+      - 'Medli3/**'
+      - '.github/workflows/build.yml'
   pull_request:
+    paths:
+      - 'Medli3/**'
+      - '.github/workflows/build.yml'
   workflow_dispatch:
 
 permissions:
