@@ -1,0 +1,47 @@
+<Project Sdk="Cosmos.Sdk/3.0.58">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <!-- Core kernel packages -->
+  <ItemGroup>
+    <PackageReference Include="Cosmos.Kernel" Version="3.0.58" />
+    <PackageReference Include="Cosmos.Kernel.System" Version="3.0.58" />
+  </ItemGroup>
+
+  <!--
+    Legacy Medli source (IL2CPU/Cosmos gen2) copied in for porting to Cosmos gen3.
+    Excluded from the build for now; remove entries from this glob as each file/folder
+    is ported to the new Cosmos.Kernel API.
+  -->
+  <ItemGroup>
+    <Compile Remove="Medli/**/*.cs" />
+    <None Remove="Medli/**/*" />
+  </ItemGroup>
+
+  <!--
+    Generate build info (year + build number) into obj/ before compiling, and add it
+    to the build. This is the gen3 equivalent of the gen2 VersionInfo.cs/BuildNumber
+    target, so the copyright year is always current without manual edits.
+  -->
+  <Target Name="GenerateBuildInfo" BeforeTargets="BeforeCompile;CoreCompile">
+    <PropertyGroup>
+      <BuildYear>$([System.DateTime]::Now.ToString("yyyy"))</BuildYear>
+      <BuildNumber>$([System.DateTime]::Now.ToString("yyyyMMddHHmm"))</BuildNumber>
+      <!-- Actual resolved Cosmos.Kernel package version this build compiled against
+           (read from the restore output, so it reflects what NuGet really picked —
+           e.g. released 3.0.58 vs a local source build like 3.0.58.20260530). -->
+      <CosmosBuildVersion Condition="Exists('$(ProjectAssetsFile)')">$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectAssetsFile)')), '&quot;Cosmos\.Kernel/([^&quot;]+)&quot;').Groups[1].Value)</CosmosBuildVersion>
+      <CosmosBuildVersion Condition="'$(CosmosBuildVersion)' == ''">unknown</CosmosBuildVersion>
+      <BuildInfoFile>$(IntermediateOutputPath)BuildInfo.g.cs</BuildInfoFile>
+    </PropertyGroup>
+    <WriteLinesToFile File="$(BuildInfoFile)" Overwrite="true"
+      Lines="// &lt;auto-generated/&gt; — regenerated each build by GenerateBuildInfo;namespace Medli%3B;public static partial class MedliInfo;{;    public const string BuildYear = &quot;$(BuildYear)&quot;%3B;    public const string BuildNumber = &quot;$(BuildNumber)&quot;%3B;    public const string CosmosVersion = &quot;$(CosmosBuildVersion)&quot;%3B;}" />
+    <ItemGroup>
+      <Compile Include="$(BuildInfoFile)" />
+    </ItemGroup>
+  </Target>
+
+</Project>

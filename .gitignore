@@ -1,0 +1,12 @@
+# Build output
+bin/
+obj/
+output-x64/
+output-arm64/
+
+# OS / editor cruft
+.DS_Store
+*.user
+
+# Machine-specific Claude settings
+.claude/settings.local.json
