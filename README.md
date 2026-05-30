@@ -1,6 +1,6 @@
 # Medli3
 
-[![Build](https://github.com/Arawn-Davies/Medli3/actions/workflows/build.yml/badge.svg)](https://github.com/Arawn-Davies/Medli3/actions/workflows/build.yml)
+[![Build](https://github.com/Arawn-Davies/Medli3/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Arawn-Davies/Medli3/actions/workflows/build.yml)
 
 **Medli3 is the third generation of Medli** (Medli gen3) — a bare-metal C# operating
 system built on **Cosmos gen3**, the [NativeAOT-based Cosmos framework](https://github.com/valentinbreiz/nativeaot-patcher)
