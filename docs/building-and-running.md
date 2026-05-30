@@ -7,18 +7,19 @@ nav_order: 3
 
 ## Building
 
-`cosmos build` wraps the .NET build + NativeAOT compile + image packaging.
+`cosmos build` wraps the .NET build + NativeAOT compile + image packaging. The project
+is in `Medli3/`, so build it with `-p Medli3` (or `cd Medli3` first):
 
 ```bash
-cosmos build                 # host architecture (auto-detected)
-cosmos build -a x64          # x86-64
-cosmos build -a arm64        # ARM64
-cosmos build -p <path>       # point at a project dir (handy when cwd differs)
+cosmos build -p Medli3            # host architecture (auto-detected)
+cosmos build -p Medli3 -a x64     # x86-64
+cosmos build -p Medli3 -a arm64   # ARM64
 ```
 
-Output: `output-<arch>/Medli3.iso`.
+Output: `Medli3/output-<arch>/Medli3.iso`.
 
-The kernel targets `net10.0` and references the Cosmos gen3 packages (see `Medli3.csproj`):
+The kernel targets `net10.0` and references the Cosmos gen3 packages (see
+`Medli3/Medli3.csproj`):
 
 ```xml
 <Project Sdk="Cosmos.Sdk/3.0.58">

@@ -18,12 +18,13 @@ case "$ARCH" in
 esac
 MEM="${MEM:-512}"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT="$ROOT/Medli3"
 COSMOS="$HOME/.dotnet/tools/cosmos"
 QEMU_DIR="$HOME/.cosmos/tools/qemu"
-ISO="$ROOT/output-$ARCH/Medli3.iso"
+ISO="$PROJECT/output-$ARCH/Medli3.iso"
 
 # Build for the requested arch.
-"$COSMOS" build -a "$ARCH"
+"$COSMOS" build -a "$ARCH" -p "$PROJECT"
 
 # Common args. -no-reboot is kept (exit on triple-fault); -no-shutdown is
 # deliberately omitted so an ACPI power-off actually terminates QEMU.

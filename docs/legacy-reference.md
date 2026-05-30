@@ -9,7 +9,7 @@ nav_order: 9
 *63 documented types.*
 
 > **⚠️ Stale.** Auto-generated from the XML doc comments of the **Medli gen2**
-> ("Medli Legacy") source under `Medli/` (excluded from the build). Describes the old
+> ("Medli Legacy") source under `Medli-Legacy/` (excluded from the build). Describes the old
 > Cosmos gen2 / IL2CPU kernel, **not** Medli3 — names/APIs often differ. A map of what
 > exists to port.
 

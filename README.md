@@ -40,14 +40,16 @@ See **[docs/](docs/)** for the full guide.
 
 ## What's here
 
-- `Kernel.cs` — kernel entry point (`Medli3.Kernel : Cosmos.Kernel.System.Kernel`).
-- `Boot/` — boot visuals: colour scheme, logo/welcome banner, colour spectrum.
-- `Shell/` — the interactive shell (`CommandConsole`) and its commands.
-- `Medli/` — **Medli gen2 ("Medli Legacy")** source, excluded from the build, kept as the
-  primary porting reference.
-- `Medli-Classic/` — **Medli gen1** source, also vendored for reference (excluded).
-- `src/C/` — placeholder for native C compiled into the kernel (shared Makar/Medli code).
-- `run.sh` — QEMU launcher for x64/arm64.
+The repo holds the three Medli generations as sibling trees, plus repo-level tooling:
+
+- **`Medli3/`** — the active **gen3** kernel project (this is what builds):
+  - `Kernel.cs` — entry point (`Medli3.Kernel : Cosmos.Kernel.System.Kernel`).
+  - `Boot/` — boot visuals (colour scheme, logo/welcome banner, spectrum).
+  - `Shell/` — the interactive shell (`CommandConsole`) and its commands.
+  - `Bootloader/`, `src/C/` (native C, shared Makar/Medli code), `Medli3.csproj`.
+- **`Medli-Legacy/`** — **Medli gen2** ("Medli Legacy") source — porting reference only.
+- **`Medli-Classic/`** — **Medli gen1** source — historical reference only.
+- `docs/` — documentation (GitHub Pages). `run.sh` — QEMU launcher (builds `Medli3/`).
 
 ## Lineage
 

@@ -12,17 +12,11 @@
   </ItemGroup>
 
   <!--
-    Vendored predecessor source, kept as porting reference and EXCLUDED from the build:
-      Medli/          — Medli gen2 ("Medli Legacy", IL2CPU / Cosmos gen2)
-      Medli-Classic/  — Medli gen1 (the earliest Medli)
-    Remove entries from these globs as each file/folder is ported to Cosmos.Kernel.
+    The predecessor source trees (../Medli-Legacy = gen2, ../Medli-Classic = gen1) live
+    as siblings of this project, outside the project directory, so they are not part of
+    the default compile glob and need no explicit exclusion. They're kept purely as a
+    porting reference; port files into Boot/ and Shell/ here as you go.
   -->
-  <ItemGroup>
-    <Compile Remove="Medli/**/*.cs" />
-    <None Remove="Medli/**/*" />
-    <Compile Remove="Medli-Classic/**/*.cs" />
-    <None Remove="Medli-Classic/**/*" />
-  </ItemGroup>
 
   <!--
     Generate build info (year + build number) into obj/ before compiling, and add it

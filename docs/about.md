@@ -38,8 +38,8 @@ it's built on) are *different* numbers — don't conflate them.
   [Cosmos gen3 / nativeaot-patcher](https://github.com/valentinbreiz/nativeaot-patcher),
   which uses the official **.NET NativeAOT** compiler — gaining ARM64 alongside x86-64.
 
-Both predecessors are vendored here as porting references (`Medli/` = gen2,
-`Medli-Classic/` = gen1), excluded from the build. See [Porting](porting.md).
+Both predecessors are vendored here as porting references (`Medli-Legacy/` = gen2,
+`Medli-Classic/` = gen1), as siblings of the `Medli3/` project. See [Porting](porting.md).
 
 In short: **Medli3 = Medli gen3, on Cosmos gen3.**
 

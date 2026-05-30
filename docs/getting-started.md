@@ -28,15 +28,19 @@ GDB all present.
 
 ## Build
 
-From the repo root:
+The kernel project lives in `Medli3/` (the predecessor trees `Medli-Legacy/` and
+`Medli-Classic/` are reference only). Build it with `-p` from the repo root, or `cd`
+into it first:
 
 ```bash
-cosmos build              # builds for the host architecture (auto-detected)
-cosmos build -a x64       # force x86-64
-cosmos build -a arm64     # force ARM64
+cosmos build -p Medli3              # host architecture (auto-detected)
+cosmos build -p Medli3 -a x64       # force x86-64
+cosmos build -p Medli3 -a arm64     # force ARM64
+# or:  cd Medli3 && cosmos build
 ```
 
-The bootable ISO lands in `output-<arch>/Medli3.iso`.
+The bootable ISO lands in `Medli3/output-<arch>/Medli3.iso`. (`./run.sh` does the
+build + boot for you.)
 
 ## Run
 

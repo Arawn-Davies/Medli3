@@ -24,8 +24,8 @@ is from gen2.)
 | Plugs | `IL2CPU.API` plugs | Cosmos gen3 plug model (different) |
 
 Because the API surface is structurally different, porting is **file-by-file**. The
-whole gen2 tree lives under `Medli/` but is excluded from the build; files are reworked
-into `Boot/`/`Shell/` as they're ported.
+whole gen2 tree lives under `Medli-Legacy/` (a sibling of the project, so it isn't
+compiled); files are reworked into `Medli3/Boot/`/`Medli3/Shell/` as they're ported.
 
 ## Conventions
 

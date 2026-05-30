@@ -7,40 +7,37 @@ nav_order: 4
 
 ## Project layout
 
-```
-Medli3/
-├── Kernel.cs            Entry point: Medli3.Kernel : Cosmos.Kernel.System.Kernel
-├── Medli3.csproj        Cosmos.Sdk project + GenerateBuildInfo target
-├── Bootloader/
-│   └── limine.conf      Limine boot entry
-├── Boot/                Boot visuals (namespace Medli)
-│   ├── KernelProperties.cs   colour scheme (partial class Kernel)
-│   ├── KernelVariables.cs    logo / welcome / version (partial class Kernel)
-│   └── Spectrum.cs           16-colour palette demo
-├── Shell/               The shell (namespaces Medli / Medli.Apps)
-│   ├── MedliInfo.cs          version + copyright (partial; build info generated)
-│   ├── Clock.cs              RTC-backed date/time formatting
-│   ├── EnvironmentVariables.cs   in-memory env vars
-│   ├── Command.cs            abstract command base
-│   ├── CommandConsole.cs     REPL + parser + command registry
-│   └── Commands/             cls, echo, set, date, time, version, reboot, shutdown, panic, help
-├── Medli/               Medli gen2 ("Medli Legacy") source — EXCLUDED from the build
-├── Medli-Classic/       Medli gen1 source — EXCLUDED from the build
-├── src/C/               native C compiled into the kernel (shared Makar/Medli code)
-└── run.sh               QEMU launcher
-```
+The repo keeps the three Medli generations as **sibling trees**; only `Medli3/` builds.
 
-Both predecessor trees are excluded in `Medli3.csproj`:
-
-```xml
-<Compile Remove="Medli/**/*.cs" />
-<None    Remove="Medli/**/*" />
-<Compile Remove="Medli-Classic/**/*.cs" />
-<None    Remove="Medli-Classic/**/*" />
+```
+<repo root>/
+├── Medli3/                     the active gen3 project (the only thing built)
+│   ├── Kernel.cs                   entry: Medli3.Kernel : Cosmos.Kernel.System.Kernel
+│   ├── Medli3.csproj               Cosmos.Sdk project + GenerateBuildInfo target
+│   ├── Bootloader/limine.conf      Limine boot entry
+│   ├── Boot/                       boot visuals (namespace Medli)
+│   │   ├── KernelProperties.cs         colour scheme (partial class Kernel)
+│   │   ├── KernelVariables.cs          logo / welcome / version (partial class Kernel)
+│   │   └── Spectrum.cs                 16-colour palette demo
+│   ├── Shell/                      the shell (namespaces Medli / Medli.Apps)
+│   │   ├── MedliInfo.cs                version + copyright (partial; build info generated)
+│   │   ├── Clock.cs                    RTC-backed date/time formatting
+│   │   ├── EnvironmentVariables.cs     in-memory env vars
+│   │   ├── Command.cs                  abstract command base
+│   │   ├── CommandConsole.cs           REPL + parser + command registry
+│   │   └── Commands/                   cls, echo, set, date, time, version, reboot, shutdown, panic, help
+│   └── src/C/                      native C compiled into the kernel (shared Makar/Medli)
+├── Medli-Legacy/               Medli gen2 ("Medli Legacy") source — reference only
+├── Medli-Classic/              Medli gen1 source — reference only
+├── docs/                       documentation (GitHub Pages)
+├── run.sh                      QEMU launcher (builds Medli3/)
+└── README.md
 ```
 
-Ported files are reintroduced under `Boot/` and `Shell/` reusing the original
-`Medli` / `Medli.Apps` namespaces, so future ports drop in with minimal edits.
+The two predecessor trees sit **outside** `Medli3/`, so they're not part of the
+project's compile glob — no explicit exclusion is needed. Port files into
+`Medli3/Boot/` and `Medli3/Shell/`, reusing the original `Medli` / `Medli.Apps`
+namespaces, as you go.
 
 ## Kernel lifecycle
 
