@@ -44,17 +44,29 @@ compiled); files are reworked into `Medli3/Boot/`/`Medli3/Shell/` as they're por
 **Ported:**
 
 - Boot screen: white-on-blue colour scheme, ASCII logo, welcome banner, colour spectrum.
-- Shell core (`Command`, `CommandConsole`) and commands: `cls`, `echo` (+`$var`), `$`
-  (set), `date`, `time`, `version`, `reboot`, `shutdown`, `panic`, `help`.
-- In-memory environment variables.
-- Build/version info generation.
+- A smaller embedded console font (spleen 8×16) so wide output fits — see
+  [Known issues](known-issues.md).
+- Shell core (`Command`, `CommandConsole`) and a `user@host dir~>` prompt.
+- Working commands: `cls`, `echo` (+`$var`), `$` (set), `get` (`host`/`sysinfo`),
+  `date`, `time`, `version`, `cowsay`, `colour`, `pause`, `md5`, `sha256`,
+  `reboot`, `shutdown`, `exit`, `logout`, `panic`, `help`.
+- Crypto: MD5 and SHA-256 (pure-logic port), exposed as the `md5`/`sha256` commands.
+- In-memory environment variables; build/version info generation.
 
-**Deferred** (need subsystems not yet ported):
+**Stubbed** — the command exists and `help` lists it, but it reports "not yet
+implemented" until its subsystem is ported:
 
-- Filesystem (FAT / the custom MDFS & WitchFS), disk drivers (IDE/FDD), `dir`/`cd`/
-  `copy`/`move`/`rm`/`mkdir`/`fdisk`.
+- Filesystem: `dir`, `cd`, `mkdir`, `rm`, `copy`, `move`, `run`, `cpview`, `cpedit`.
+- Applications: `vics` (the VICS editor), `launch`, `screen`, `devenv`.
+- Disk/hardware: `fdisk`; the `get` hardware args (`ram_*`, `lspci`, `lscpu`,
+  `list_vol(s)`, `fs_log`).
+
+**Deferred** (no command surface yet):
+
+- Filesystem (FAT / the custom MDFS & WitchFS), disk drivers (IDE/FDD).
 - The custom `AConsole` + animated `Bootscreen`.
-- Networking (RTL8139, serial), crypto, the VICS editor, the menu system, login/accounts.
+- Networking (RTL8139, serial), the menu system, login/accounts. No PC speaker in gen3,
+  so anything needing `beep` stays out.
 
 See the [legacy reference](legacy-reference.md) (gen2) and
 [classic reference](classic-reference.md) (gen1) for the full subsystem catalogues.

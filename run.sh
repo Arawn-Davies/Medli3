@@ -23,8 +23,22 @@ COSMOS="$HOME/.dotnet/tools/cosmos"
 QEMU_DIR="$HOME/.cosmos/tools/qemu"
 ISO="$PROJECT/output-$ARCH/Medli3.iso"
 
-# Build for the requested arch.
-"$COSMOS" build -a "$ARCH" -p "$PROJECT"
+# Build for the requested arch, but only if the ISO is missing or a source file has
+# changed since it was last built (otherwise just boot the existing ISO).
+needs_build=1
+if [[ -f "$ISO" ]]; then
+  newer=$(find "$PROJECT" -type f \
+            \( -name '*.cs' -o -name '*.csproj' -o -name '*.conf' -o -name '*.psf' \) \
+            -not -path '*/obj/*' -not -path '*/bin/*' -not -path '*/output-*/*' \
+            -newer "$ISO" -print -quit)
+  [[ -z "$newer" ]] && needs_build=0
+fi
+
+if [[ "$needs_build" == 1 ]]; then
+  "$COSMOS" build -a "$ARCH" -p "$PROJECT"
+else
+  echo "Medli3.iso ($ARCH) is up to date; skipping build."
+fi
 
 # Common args. -no-reboot is kept (exit on triple-fault); -no-shutdown is
 # deliberately omitted so an ACPI power-off actually terminates QEMU.

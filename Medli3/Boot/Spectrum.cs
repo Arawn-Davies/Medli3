@@ -37,7 +37,8 @@ public static class Spectrum
         // Swatches as FOREGROUND glyphs. Cosmos' KernelConsole keeps each cell's
         // foreground colour across a scroll/redraw but NOT its background colour, so
         // true background swatches vanish the moment the screen scrolls. ASCII '#'
-        // (the full-block U+2588 isn't in the bundled DefaultFont.psf).
+        // because the full-block U+2588 is multi-byte UTF-8 and KernelConsole.Write
+        // draws a glyph per byte (→ "EEE" junk) rather than mapping the codepoint.
         for (int i = 0; i < 16; i++)
         {
             Console.ForegroundColor = (ConsoleColor)i;
