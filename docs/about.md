@@ -29,7 +29,7 @@ it's built on) are *different* numbers — don't conflate them.
 |-----------|---------|------------------|------|
 | gen1 | Medli-Classic | Cosmos (early) | [Medli-Classic](https://github.com/Arawn-Davies/Medli-Classic) |
 | gen2 | Medli ("Medli Legacy") | Cosmos gen2 (IL2CPU) | [Medli](https://github.com/Arawn-Davies/Medli) |
-| **gen3** | **Medli3** (this repo) | **Cosmos gen3** (NativeAOT) | [Medli3](https://github.com/Arawn-Davies/Medli3) |
+| **gen3** | **Medli3** (this repo) | **Cosmos gen3** (NativeAOT) | [Medli3](https://github.com/Arawn-Davies/medli3) |
 
 - **Medli gen1 / Medli-Classic** — the earliest Medli.
 - **Medli gen2 / "Medli Legacy"** — built with **Cosmos gen2** via **IL2CPU**, the

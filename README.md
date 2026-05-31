@@ -1,6 +1,6 @@
 # Medli3
 
-[![Build](https://github.com/Arawn-Davies/Medli3/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Arawn-Davies/Medli3/actions/workflows/build.yml)
+[![Build](https://github.com/Arawn-Davies/medli3/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Arawn-Davies/medli3/actions/workflows/build.yml)
 
 **Medli3 is the third generation of Medli** (Medli gen3) — a bare-metal C# operating
 system built on **Cosmos gen3**, the [NativeAOT-based Cosmos framework](https://github.com/valentinbreiz/nativeaot-patcher)
@@ -59,7 +59,7 @@ The repo holds the three Medli generations as sibling trees, plus repo-level too
 |-----|---------|-----------|------|
 | gen1 | Medli-Classic | Cosmos (early) | [Medli-Classic](https://github.com/Arawn-Davies/Medli-Classic) |
 | gen2 | Medli ("Medli Legacy") | Cosmos gen2 (IL2CPU) | [Medli](https://github.com/Arawn-Davies/Medli) |
-| **gen3** | **Medli3** (this repo) | **Cosmos gen3** (NativeAOT) | [Medli3](https://github.com/Arawn-Davies/Medli3) |
+| **gen3** | **Medli3** (this repo) | **Cosmos gen3** (NativeAOT) | [Medli3](https://github.com/Arawn-Davies/medli3) |
 
 Medli is also paralleled by [Makar](https://github.com/Arawn-Davies/Makar) — a
 ground-up implementation of the same OS concept in C. See [docs/about.md](docs/about.md).
