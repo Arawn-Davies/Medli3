@@ -11,3 +11,6 @@ aux_links:
 search_enabled: true
 heading_anchors: true
 color_scheme: dark
+
+footer_content: >-
+  <a href="https://arawn-davies.co.uk">Home: arawn-davies.co.uk</a>
